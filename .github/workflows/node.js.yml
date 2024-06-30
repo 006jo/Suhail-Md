@@ -1,5 +1,5 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://.github.com/actions/automating-builds-and-tests/building-and-testing-nodejs
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 name: Node.js CI
 on:
 push:
@@ -7,6 +7,9 @@ branches: [ "main" ]
   pull_request:
 branches: [ "main" ]
 
+env:
+# Example environment variable
+NODE_ENV: 'production'
 jobs:
 build:
 runs-on: ubuntu-latest
@@ -24,4 +27,3 @@ cache: 'npm'
 - run: npm ci
 - run: npm run build --if-present
 - run: npm test
-[yarn run]
